@@ -2,7 +2,7 @@
 1. Получить все товары, у которых есть фотографии, можете использовать метод filter https://mzl.la/2qROQkT
 2. Отсортируйте товары по цене (от низкой цены к высокой), можете использовать метод sort
 https://mzl.la/2Y79hbZ , как устроен sort можно посмотреть например здесь https://youtu.be/O2pusOp0gC0 */
-const products = [
+const productsFour = [
     {
         id: 3,
         price: 127,
@@ -26,27 +26,19 @@ const products = [
     {
         id: 8,
         price: 78,
+        
     },
 ];
 
-function anyPhoto(){
-    for (i = 0; i < 3; i++) {
-       
-        return ((products[i].photos).length) 
-    } 
-    
-         /*if (((products[i].photos).length) > 0) {
-        console.log((products[i].photos).length);
-        return true;
-    } 
-        else {
-            return false
-        };*/
-    }  
 
+const prodWithPhotos = productsFour.filter(item => "photos" in item && item.photos.length > 0);
+        console.log(prodWithPhotos);
 
+        const sortedPrice = productsFour.sort(function (item1, item2) {
+            return item1.price - item2.price;
+        });
+        console.log(sortedPrice);
 
-const photoLen = anyPhoto(products);
- console.log(photoLen);
-
-// console.log(products.filter(anyPhoto));
+for (let property in productsFour) {
+    console.log(property);
+}
